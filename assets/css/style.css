@@ -4,14 +4,16 @@
     margin-left: 25px;
     margin-right: 5px;
     text-align: center;
-    
 }
+
 header {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    background-color: blue;
+    background-color: rgba(62, 62, 114, 0.904);
     color: white;
+    font-size: 60px;
 }
+
 textarea {
     max-width: 200px;
     max-height: 40px;
@@ -20,28 +22,49 @@ textarea {
 
 .container {
     display: flex;
-    margin: 20px ;
+    margin: 20px;
     margin-top: 35px;
     flex-direction: column;
     width: 80%;
 }
 
 .col-9 {
-height: 200px;
-width: 100%;
-background-color: aqua;
-margin: 10px;
-}
-
-.col-4 {
-    height:350px;
-    color: white;
-    background-color: blueviolet;
+    height: 200px;
     width: 100%;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    background-color: rgba(255, 226, 183, 0.5); /*change color based on day or night*/
     margin: 10px;
 }
 
+.col-4 {
+    height: 350px;
+    width: 100%;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .layout {
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.list-group {
+background-image: linear-gradient(rgba(37, 25, 49, 0.788), rgba(98, 75, 119, 0.788));
+}
+
+ li {
+height: 290px;
+width: 100%;
+margin: 20px;
+}
+body {
+    height: 1000px;
+    background-image: linear-gradient(white, rgba(25, 105, 151, 0.836));
+}
+span {
+    font-size: large;
+    font-weight: 500;
 }
