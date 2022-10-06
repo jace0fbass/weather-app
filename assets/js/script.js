@@ -7,3 +7,9 @@
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 
+// Give search button functionality.
+// display
+
+var weatherAppAPI = "6a701a3a23ede8f43afc812ee05a9951";
+
+// MORE ABOUT API KEY AT   https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
