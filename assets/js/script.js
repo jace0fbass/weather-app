@@ -12,8 +12,9 @@
 
 //var weatherAppAPI = "eae798b284ccde933e01fec4c703c7d6";
 
-// var currentDate = moment().format("MMMM Do YYYY");
-// add moment.js
+var currentDay = moment();
+$("#currentDay").text(currentDay.format("dddd MMMM Do, YYYY"));
+console.log(currentDay.format("dddd MMMM Do, YYYY"));
 
 async function getCityWeatherInfo(cityName) {
   return fetch(

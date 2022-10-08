@@ -6,6 +6,15 @@
     text-align: center;
 }
 
+#cityBtn {
+    margin-top: 10px;
+    background-color: transparent;
+    color: white;
+    font-weight: 400;
+}
+h1 {
+    text-align: center;
+}
 header {
     padding: 10px;
     text-align: center;
@@ -36,6 +45,7 @@ textarea {
     border-width: 2px;
     background-color: rgba(255, 226, 183, 0.199); /*change color based on day or night*/
     margin: 10px;
+    font-size: larger;
 }
 
 .col-4 {
