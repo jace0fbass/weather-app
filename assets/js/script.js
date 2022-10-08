@@ -7,10 +7,6 @@
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 
-// Give search button functionality.
-// display
-
-//var weatherAppAPI = "eae798b284ccde933e01fec4c703c7d6";
 
 var currentDay = moment();
 $("#currentDay").text(currentDay.format("dddd MMMM Do, YYYY"));
@@ -78,15 +74,3 @@ const day2 = $("#day2");
 const day3 = $("#day3");
 const day4 = $("#day4");
 const day5 = $("#day5");
-// function for the buttons on the left
-//  function leftSideCities() {
-//    const atlanta = $("#atlanta");
-
-//   atlanta.click(function () {
-//     const atlanta = atlanta.val();
-//     getCityWeatherInfo("atlanta");
-//   });
-// }
-// fetch("")
-// .then((response) => response.json())
-// .then((data) => console.log(data))
