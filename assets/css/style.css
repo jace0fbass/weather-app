@@ -5,12 +5,20 @@
     margin-right: 5px;
     text-align: center;
 }
+#cityBtn1, #cityBtn2, #cityBtn3, #cityBtn4, #cityBtn5, #cityBtn6, #cityBtn7, #cityBtn8 {
+    color:white;
+    font-weight: 500;
+    margin:3px;
+}
 
-#cityBtn {
-    margin-top: 10px;
-    background-color: transparent;
-    color: white;
+#cityBtn1:hover, #cityBtn2:hover, #cityBtn3:hover, #cityBtn4:hover, #cityBtn5:hover, #cityBtn6:hover, #cityBtn7:hover, #cityBtn8:hover {
+    color:rgb(162, 221, 255);
+    font-weight: 500;
+}
+button {
+    padding: 1px;
     font-weight: 400;
+    background-image: linear-gradient(rgba(37, 25, 49, 0.788), rgba(98, 75, 119, 0.788));
 }
 h1 {
     text-align: center;
@@ -63,7 +71,8 @@ textarea {
 }
 
 .list-group {
-background-image: linear-gradient(rgba(37, 25, 49, 0.788), rgba(98, 75, 119, 0.788));
+
+color:white;
 }
 
  li {
