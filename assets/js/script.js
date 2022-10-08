@@ -15,7 +15,7 @@ console.log(currentDay.format("dddd MMMM Do, YYYY"));
 async function getCityWeatherInfo(cityName) {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
-  )
+    )
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -24,53 +24,69 @@ async function getCityWeatherInfo(cityName) {
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
       $("#description").text(`Sky: ${data.weather[0].main}`);
+      // ATTEMPTING TO GET THE 5 DAY INFO AT THE SAME TIME BUT AM DOING IT WRONG.
+      getForecast(cityName);
     });
-}
+  }
 
 const searchBtn = $("#searchBtn");
 const cityInput = $("#cityInput");
 searchBtn.click(function () {
   const cityValue = cityInput.val();
   getCityWeatherInfo(cityValue);
-  console.log("city searched for: " + cityValue);
+  console.log("City searched for: " + cityValue);
 });
 
-// function works but im pulling from the API wrong.
-async function leftBtns() {
-  return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=atlanta&lat=33.753746&lon=-84.386330&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
-      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
-      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
-      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
-      $("#description").text(`Sky: ${data.weather[0].main}`);
-    });
-}
 
-const cityBtn1 = $("#cityBtn1");
-const atlantaClicked = $("#cityBtn1");
-cityBtn1.click(function () {
-  const cityValue = cityBtn1.val();
-  getCityWeatherInfo(cityValue);
-  console.log("left button clicked");
-});
-
-// async function getForecast(cityName) {
-//     return fetch(
-//       `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
-//     )
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log(data);
-//         $("#forecast").text(`${data.name}  ${data.main.temp}`);
-//       });
-//   }
+// FUNCTION TO GET THE 5 DAY FORECAST. ITS BROKEN BUT ON TRACK I THINK. NOT SURE HOW TO FETCH LOCATION.
+ function getForecast(cityName) {
+   fetch(
+     `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=eae798b284ccde933e01fec4c703c7d6`
+   )
+     .then((response) => response.json())
+     .then((data) => {
+       console.log(data);
+       console.log("Forecast API fetch works")
+       $("#day1, #day2, #day3, #day4, #day5").text(`${data.name} ${data.main}°`);
+       console.log("Forecast displayed");
+       console.log(feelsLike)
+     });
+ }
 const day1 = $("#day1");
 const day2 = $("#day2");
 const day3 = $("#day3");
 const day4 = $("#day4");
 const day5 = $("#day5");
+
+
+// function works but im pulling from the API wrong.
+function leftBtnsSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=atlanta&lat=33.753746&lon=-84.386330&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main}`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+      const atlanta = $("#cityBtn1");
+      const denver= $("#cityBtn2");
+      const seattle = $("#cityBtn3");
+      const sanFrancisco = $("#cityBtn4");
+      const orlando = $("#cityBtn5");
+      const newYork = $("#cityBtn6");
+      const austin = $("#cityBtn7");
+      const chicago = $("#cityBtn8");
+    });
+}
+// IF STATEMENT FOR EACH CITY ON THE BTNS
+const cityBtn1 = $("#cityBtn1");
+const atlantaClicked = $("#cityBtn1");
+cityBtn1.click(function () {
+  const cityValue = cityBtn1.val();
+  getCityWeatherInfo(cityValue);
+  console.log("Atlanta clicked");
+});

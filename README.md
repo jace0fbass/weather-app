@@ -1,5 +1,16 @@
 # 06 Server-Side APIs: Weather Dashboard
 
+## Deployed link
+
+https://jace0fbass.github.io/weather-app/
+
+
+## Description
+In this challenge I have used the fetch() function to retrieve data from APIS and manipulate it. I have used moment.js to get the current day. 
+
+## Screenshot
+
+
 ## Your Task
 
 Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.

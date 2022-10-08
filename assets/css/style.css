@@ -9,6 +9,7 @@
     color:white;
     font-weight: 500;
     margin:3px;
+    border-radius: 5px;
 }
 
 #cityBtn1:hover, #cityBtn2:hover, #cityBtn3:hover, #cityBtn4:hover, #cityBtn5:hover, #cityBtn6:hover, #cityBtn7:hover, #cityBtn8:hover {
@@ -79,7 +80,7 @@ textarea {
 color:white;
 }
 
- li {
+#day1, #day2, #day3, #day4, #day5 {
 height: 290px;
 width: 100%;
 margin: 20px;
@@ -91,4 +92,9 @@ body {
 span {
     font-size: large;
     font-weight: 500;
+}
+#day1, #day2, #day3, #day4, #day5, #day6, #day7, #day8 {
+border-radius: 5%;
+border-style: double;
+border-width: 3px;
 }
