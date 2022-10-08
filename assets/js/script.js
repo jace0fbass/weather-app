@@ -10,6 +10,30 @@
 // Give search button functionality.
 // display
 
-var weatherAppAPI = "6a701a3a23ede8f43afc812ee05a9951";
+//var weatherAppAPI = "eae798b284ccde933e01fec4c703c7d6";
 
 // MORE ABOUT API KEY AT   https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
+//var currentDate = moment().format("LL");
+// add moment.js
+
+async function getCityWeatherInfo(cityName) {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ( ${data.main.temp} )`);
+    });
+}
+
+const searchBtn = $("#searchBtn");
+const cityInput = $("#cityInput");
+
+searchBtn.click(function () {
+  const cityValue = cityInput.val();
+  getCityWeatherInfo(cityValue);
+});
+// fetch("https://openweathermap.org/forecast5")
+// .then((response) => response.json())
+// .then((data) => console.log(data))
