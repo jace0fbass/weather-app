@@ -12,18 +12,17 @@
 
 //var weatherAppAPI = "eae798b284ccde933e01fec4c703c7d6";
 
-// MORE ABOUT API KEY AT   https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
 //var currentDate = moment().format("LL");
 // add moment.js
 
 async function getCityWeatherInfo(cityName) {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=fe6203bc0aed338120f1ad06f08effe6`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
   )
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ( ${data.main.temp} )`);
+      $("#cityAndDate").text(`${data.name}  ${data.main.temp}° `);
     });
 }
 
@@ -34,6 +33,40 @@ searchBtn.click(function () {
   const cityValue = cityInput.val();
   getCityWeatherInfo(cityValue);
 });
+
+async function getForecast(cityName) {
+    return fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        $("#forecast").text(`${data.name}  ${data.main.temp}`);
+      });
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function leftSideCities() {
+//   const atlanta = $("#atlanta");
+
+//   atlanta.click(function () {
+//     const atlanta = atlanta.val();
+//     getCityWeatherInfo(atlanta);
+//   });
+// }
 // fetch("https://openweathermap.org/forecast5")
 // .then((response) => response.json())
 // .then((data) => console.log(data))
