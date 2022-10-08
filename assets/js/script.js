@@ -36,6 +36,7 @@ const cityInput = $("#cityInput");
 searchBtn.click(function () {
   const cityValue = cityInput.val();
   getCityWeatherInfo(cityValue);
+  console.log("city searched for: " + cityValue)
 });
 
 // function works but im pulling from the API wrong.
