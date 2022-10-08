@@ -27,6 +27,7 @@ async function getCityWeatherInfo(cityName) {
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
     });
 }
 
@@ -36,6 +37,41 @@ searchBtn.click(function () {
   const cityValue = cityInput.val();
   getCityWeatherInfo(cityValue);
 });
+
+// function works but im pulling from the API wrong.
+async function leftBtns() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=atlanta&lat=33.753746&lon=-84.386330&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+  }
+  
+const cityBtn1 = $("#cityBtn1");
+const atlantaClicked = $("#cityBtn1");
+cityBtn1.click(function () {
+  const cityValue = cityBtn1.val();
+  getCityWeatherInfo(cityValue);
+  console.log("left button clicked")
+});
+
+
+
+
+
+
+
+
+
+
+
 
 // async function getForecast(cityName) {
 //     return fetch(
