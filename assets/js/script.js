@@ -12,7 +12,7 @@
 
 //var weatherAppAPI = "eae798b284ccde933e01fec4c703c7d6";
 
-//var currentDate = moment().format("LL");
+// var currentDate = moment().format("MMMM Do YYYY");
 // add moment.js
 
 async function getCityWeatherInfo(cityName) {
@@ -22,51 +22,44 @@ async function getCityWeatherInfo(cityName) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name}  ${data.main.temp}° `);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
     });
 }
 
 const searchBtn = $("#searchBtn");
 const cityInput = $("#cityInput");
-
 searchBtn.click(function () {
   const cityValue = cityInput.val();
   getCityWeatherInfo(cityValue);
 });
 
-async function getForecast(cityName) {
-    return fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        $("#forecast").text(`${data.name}  ${data.main.temp}`);
-      });
-  }
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function leftSideCities() {
-//   const atlanta = $("#atlanta");
+// async function getForecast(cityName) {
+//     return fetch(
+//       `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+//     )
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log(data);
+//         $("#forecast").text(`${data.name}  ${data.main.temp}`);
+//       });
+//   }
+const day1 = $("#day1");
+const day2 = $("#day2");
+const day3 = $("#day3");
+const day4 = $("#day4");
+const day5 = $("#day5");
+// function for the buttons on the left
+//  function leftSideCities() {
+//    const atlanta = $("#atlanta");
 
 //   atlanta.click(function () {
 //     const atlanta = atlanta.val();
-//     getCityWeatherInfo(atlanta);
+//     getCityWeatherInfo("atlanta");
 //   });
 // }
-// fetch("https://openweathermap.org/forecast5")
+// fetch("")
 // .then((response) => response.json())
 // .then((data) => console.log(data))
