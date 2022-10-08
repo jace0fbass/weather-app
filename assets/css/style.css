@@ -15,6 +15,10 @@
     color:rgb(162, 221, 255);
     font-weight: 500;
 }
+#forecastTitle {
+    font-size: 40px;
+    font-weight: 600;
+}
 button {
     padding: 1px;
     font-weight: 400;
