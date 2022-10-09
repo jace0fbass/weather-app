@@ -25,7 +25,7 @@ async function getCityWeatherInfo(cityName) {
       $("#description").text(`Sky: ${data.weather[0].main}`);
       // ATTEMPTING TO GET THE 5 DAY INFO AT THE SAME TIME BUT AM DOING IT WRONG.
       getForecast(cityName);
-      console.log("getForecast ran inside of getCityWeatherInfo")
+      console.log("getForecast ran inside of getCityWeatherInfo");
     });
 }
 
@@ -46,33 +46,52 @@ function getForecast(cityName) {
     .then((data) => {
       console.log(data);
       console.log("Forecast API fetch works");
-      // LOOP THROUGH THESE?
-  
-      $("#day1").text(`${data.list[2].dt_txt} ${data.list[2].main.temp_max}°/${data.list[2].main.temp_min}° Feels like: ${data.list[2].main.feels_like}° Humidity: ${data.list[2].main.humidity}% Wind: ${data.list[2].wind.speed}mph`);
+
+      $("#day1").text(
+        `${data.list[2].dt_txt.split(" ")[0]} High:${
+          data.list[2].main.temp_max
+        }° Feel:${data.list[2].main.feels_like}° Humidity:${
+          data.list[2].main.humidity
+        }% Wind:${data.list[2].wind.speed}mph`
+      );
       console.log(data);
 
-      $("#day2").text(`${data.list[10].dt_txt} ${data.list[10].main.temp_max}°/${data.list[10].main.temp_min}° Feels like: ${data.list[10].main.feels_like}° Humidity: ${data.list[10].main.humidity}% Wind: ${data.list[10].wind.speed}mph`);
+      $("#day2").text(
+        `${data.list[10].dt_txt.split(" ")[0]} High:${
+          data.list[10].main.temp_max
+        }° Feel:${data.list[10].main.feels_like}° Humidity:${
+          data.list[10].main.humidity
+        }% Wind:${data.list[10].wind.speed}mph`
+      );
       console.log(data);
 
-      $("#day3").text(`${data.list[18].dt_txt} ${data.list[18].main.temp_max}°/${data.list[18].main.temp_min}° Feels like: ${data.list[18].main.feels_like}° Humidity: ${data.list[18].main.humidity}% Wind: ${data.list[18].wind.speed}mph`);
+      $("#day3").text(
+        `${data.list[18].dt_txt.split(" ")[0]} High:${
+          data.list[18].main.temp_max
+        }° Feel:${data.list[18].main.feels_like}° Humidity:${
+          data.list[18].main.humidity
+        }% Wind:${data.list[18].wind.speed}mph`
+      );
       console.log(data);
 
-      $("#day4").text(`${data.list[26].dt_txt} ${data.list[26].main.temp_max}°/${data.list[26].main.temp_min}° Feels like: ${data.list[26].main.feels_like}° Humidity: ${data.list[26].main.humidity}% Wind: ${data.list[26].wind.speed}mph`);
+      $("#day4").text(
+        `${data.list[26].dt_txt.split(" ")[0]} High:${
+          data.list[26].main.temp_max
+        }° Feel:${data.list[26].main.feels_like}° Humidity:${
+          data.list[26].main.humidity
+        }% Wind:${data.list[26].wind.speed}mph`
+      );
       console.log(data);
 
-      $("#day5").text(`${data.list[34].dt_txt} ${data.list[34].main.temp_max}°/${data.list[34].main.temp_min}° Feels like: ${data.list[34].main.feels_like}° Humidity: ${data.list[34].main.humidity}% Wind: ${data.list[34].wind.speed}mph`);
+      $("#day5").text(
+        `${data.list[34].dt_txt.split(" ")[0]} High:${
+          data.list[34].main.temp_max
+        }° Feel:${data.list[34].main.feels_like}° Humidity:${
+          data.list[34].main.humidity
+        }% Wind:${data.list[34].wind.speed}mph`
+      );
       console.log(data);
-
-
-
       console.log("Day1-5 forecast displayed");
-
-
-
-
-
-
-
     });
 }
 const day1 = $("#day1");

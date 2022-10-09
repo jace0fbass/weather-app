@@ -20,10 +20,11 @@
     font-size: 40px;
     font-weight: 600;
 }
+
 button {
     padding: 1px;
     font-weight: 400;
-    background-image: linear-gradient(rgba(37, 25, 49, 0.788), rgba(98, 75, 119, 0.788));
+    background-image: linear-gradient(rgba(37, 25, 49, 0.788), rgba(76, 75, 119, 0.774) 60%);
 }
 h1 {
     text-align: center;
@@ -32,9 +33,9 @@ h1 {
 header {
     padding: 10px;
     text-align: center;
-    background-color: rgba(62, 62, 114, 0.904);
     color: white;
     font-size: 60px;
+    background-image: linear-gradient(rgba(37, 25, 49, 0.788), rgba(76, 75, 119, 0.774) 60%);
 }
 
 textarea {
@@ -54,49 +55,62 @@ textarea {
 .col-9 {
     height: 200px;
     width: 100%;
-    border-style: solid;
+    border-style: double;
+    border-width: 3px;
     border-radius: 10px;
-    border-width: 2px;
+    border-color: rgba(25, 105, 151, 0.836);
     background-color: white; /*change color based on day or night*/
     margin: 10px;
     font-size: larger;
 }
 
 .col-4 {
-    height: 350px;
+    height: 100%;
     width: 100%;
     margin: 10px;
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
     font-size: 25px;
+    
 }
 
 .layout {
     display: flex;
     justify-content: center;
+    margin: 10px;
+}
+.row{ 
+    padding: 10px;
 }
 
 .list-group {
 
 color:white;
 }
-
 #day1, #day2, #day3, #day4, #day5 {
-height: 290px;
+height: 100%;
 width: 100%;
 margin: 20px;
+font-weight: 600;
+border-radius: 5%;
+border-style: double;
+border-width: 3px;
+text-align: center;
+border-color: rgba(25, 105, 151, 0.836);
+
 }
 body {
-    height: 1000px;
+    height: 100%;
     background-image: linear-gradient(white, rgba(25, 105, 151, 0.836));
 }
 span {
     font-size: large;
     font-weight: 500;
 }
-#day1, #day2, #day3, #day4, #day5, #day6, #day7, #day8 {
-border-radius: 5%;
-border-style: double;
-border-width: 3px;
+
+footer {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 10px;
 }
