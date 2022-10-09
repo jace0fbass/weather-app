@@ -69,8 +69,7 @@ textarea {
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    font-size: 25px;
 }
 
 .layout {

@@ -40,16 +40,34 @@ searchBtn.click(function () {
 // FUNCTION TO GET THE 5 DAY FORECAST. ITS BROKEN BUT ON TRACK I THINK. NOT SURE HOW TO FETCH LOCATION.
 function getForecast(cityName) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=eae798b284ccde933e01fec4c703c7d6`
+    `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&exclude=current,minutely,hourly,alerts&units=imperial&appid=eae798b284ccde933e01fec4c703c7d6`
   )
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
       console.log("Forecast API fetch works");
       // ONLY PULLING DATA FOR INDEX 0.
-      $("#day1, #day2, #day3, #day4, #day5").text(`${data.list[0].main.temp}° ${data.list[0].main.feels_like}° ${data.list[0].main.humidity}% ${data.list[0].wind.speed}mph`)
+      $("#day1").text(`${data.list[0].main.temp_max}°/${data.list[0].main.temp_min}° Feels like: ${data.list[0].main.feels_like}° Humidity: ${data.list[0].main.humidity}% Wind: ${data.list[0].wind.speed}mph`);
       console.log(data);
-      console.log("Forecast displayed");
+      console.log(" Day1 forecast displayed");
+
+      $("#day2").text(`${data.list[2].main.temp_max}°/${data.list[2].main.temp_min}° Feels like: ${data.list[2].main.feels_like}° Humidity: ${data.list[2].main.humidity}% Wind: ${data.list[2].wind.speed}mph`);
+      console.log(data);
+      console.log(" Day1 forecast displayed");
+
+      $("#day3").text(`${data.list[10].main.temp_max}°/${data.list[10].main.temp_min}° Feels like: ${data.list[10].main.feels_like}° Humidity: ${data.list[10].main.humidity}% Wind: ${data.list[10].wind.speed}mph`);
+      console.log(data);
+      console.log(" Day1 forecast displayed");
+
+      $("#day4").text(`${data.list[18].main.temp_max}°/${data.list[18].main.temp_min}° Feels like: ${data.list[18].main.feels_like}° Humidity: ${data.list[18].main.humidity}% Wind: ${data.list[18].wind.speed}mph`);
+      console.log(data);
+      console.log(" Day1 forecast displayed");
+
+      $("#day5").text(`${data.list[26].main.temp_max}°/${data.list[26].main.temp_min}° Feels like: ${data.list[26].main.feels_like}° Humidity: ${data.list[26].main.humidity}% Wind: ${data.list[26].wind.speed}mph`);
+      console.log(data);
+      console.log(" Day1 forecast displayed");
+
+
     });
 }
 const day1 = $("#day1");
