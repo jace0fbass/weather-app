@@ -25,6 +25,7 @@ async function getCityWeatherInfo(cityName) {
       $("#description").text(`Sky: ${data.weather[0].main}`);
       // ATTEMPTING TO GET THE 5 DAY INFO AT THE SAME TIME BUT AM DOING IT WRONG.
       getForecast(cityName);
+      console.log("getForecast ran inside of getCityWeatherInfo")
     });
 }
 
@@ -33,21 +34,22 @@ const cityInput = $("#cityInput");
 searchBtn.click(function () {
   const cityValue = cityInput.val();
   getCityWeatherInfo(cityValue);
-  console.log("City searched for: " + cityValue);
+  console.log("gCWI: City searched for: " + cityValue);
 });
 
 // FUNCTION TO GET THE 5 DAY FORECAST. ITS BROKEN BUT ON TRACK I THINK. NOT SURE HOW TO FETCH LOCATION.
 function getForecast(cityName) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=eae798b284ccde933e01fec4c703c7d6`
+    `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=eae798b284ccde933e01fec4c703c7d6`
   )
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
       console.log("Forecast API fetch works");
-      $("#day1, #day2, #day3, #day4, #day5").text(`${data.name} ${data.main}°`);
+      // ONLY PULLING DATA FOR INDEX 0.
+      $("#day1, #day2, #day3, #day4, #day5").text(`${data.list[0].main.temp}° ${data.list[0].main.feels_like}° ${data.list[0].main.humidity}% ${data.list[0].wind.speed}mph`)
+      console.log(data);
       console.log("Forecast displayed");
-      console.log(feelsLike);
     });
 }
 const day1 = $("#day1");
