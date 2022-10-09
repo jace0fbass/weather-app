@@ -49,23 +49,23 @@ function getForecast(cityName) {
       // ONLY PULLING DATA FOR INDEX 0.
       $("#day1").text(`${data.list[0].main.temp_max}°/${data.list[0].main.temp_min}° Feels like: ${data.list[0].main.feels_like}° Humidity: ${data.list[0].main.humidity}% Wind: ${data.list[0].wind.speed}mph`);
       console.log(data);
-      console.log(" Day1 forecast displayed");
+      console.log("Day1 forecast displayed");
 
       $("#day2").text(`${data.list[2].main.temp_max}°/${data.list[2].main.temp_min}° Feels like: ${data.list[2].main.feels_like}° Humidity: ${data.list[2].main.humidity}% Wind: ${data.list[2].wind.speed}mph`);
       console.log(data);
-      console.log(" Day1 forecast displayed");
+      console.log("Day2 forecast displayed");
 
       $("#day3").text(`${data.list[10].main.temp_max}°/${data.list[10].main.temp_min}° Feels like: ${data.list[10].main.feels_like}° Humidity: ${data.list[10].main.humidity}% Wind: ${data.list[10].wind.speed}mph`);
       console.log(data);
-      console.log(" Day1 forecast displayed");
+      console.log("Day3 forecast displayed");
 
       $("#day4").text(`${data.list[18].main.temp_max}°/${data.list[18].main.temp_min}° Feels like: ${data.list[18].main.feels_like}° Humidity: ${data.list[18].main.humidity}% Wind: ${data.list[18].wind.speed}mph`);
       console.log(data);
-      console.log(" Day1 forecast displayed");
+      console.log("Day4 forecast displayed");
 
       $("#day5").text(`${data.list[26].main.temp_max}°/${data.list[26].main.temp_min}° Feels like: ${data.list[26].main.feels_like}° Humidity: ${data.list[26].main.humidity}% Wind: ${data.list[26].wind.speed}mph`);
       console.log(data);
-      console.log(" Day1 forecast displayed");
+      console.log("Day5 forecast displayed");
 
 
     });
