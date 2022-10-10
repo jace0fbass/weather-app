@@ -103,7 +103,7 @@ const day5 = $("#day5");
 // function works but im pulling from the API wrong.
 function leftBtnsSearch() {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=atlanta&lat=33.753746&lon=-84.386330&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
   )
     .then((response) => response.json())
     .then((data) => {
