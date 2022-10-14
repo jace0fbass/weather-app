@@ -101,33 +101,218 @@ const day4 = $("#day4");
 const day5 = $("#day5");
 
 // function works but im pulling from the API wrong.
-function leftBtnsSearch() {
+async function atlantaSearch() {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+    `https://api.openweathermap.org/data/2.5/weather?lat=33.75&lon=-84.38&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
   )
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main}`);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
       $("#description").text(`Sky: ${data.weather[0].main}`);
-      const atlanta = $("#cityBtn1");
-      const denver = $("#cityBtn2");
-      const seattle = $("#cityBtn3");
-      const sanFrancisco = $("#cityBtn4");
-      const orlando = $("#cityBtn5");
-      const newYork = $("#cityBtn6");
-      const austin = $("#cityBtn7");
-      const chicago = $("#cityBtn8");
     });
 }
-// IF STATEMENT FOR EACH CITY ON THE BTNS
 const cityBtn1 = $("#cityBtn1");
+lat = 33.753746;
+lon = -84.38633;
 const atlantaClicked = $("#cityBtn1");
 cityBtn1.click(function () {
   const cityValue = cityBtn1.val();
-  getCityWeatherInfo(cityValue);
+  if (atlantaClicked) {
+    atlantaSearch(cityValue); {
+    }
+  }
   console.log("Atlanta clicked");
+});
+
+async function denverSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=39.742043&lon=-104.991531&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn2 = $("#cityBtn2");
+lat = 39.742043;
+lon = -104.991531;
+const denverClicked = $("#cityBtn2");
+cityBtn2.click(function () {
+  const cityValue = cityBtn2.val();
+  if (denverClicked) {
+    denverSearch(cityValue); {  
+    }
+  }
+  console.log("Denver clicked");
+});
+
+async function seattleSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=47.620422&lon=-122.335167&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn3 = $("#cityBtn3");
+lat = 47.620422;
+lon = -122.335167;
+const seattleClicked = $("#cityBtn3");
+cityBtn3.click(function () {
+  const cityValue = cityBtn3.val();
+  if (seattleClicked) {
+    seattleSearch(cityValue); {  
+    }
+  }
+  console.log("Seattle clicked");
+});
+
+async function sanfranciscoSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=37.773972&lon=-122.43&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn4 = $("#cityBtn4");
+lat = 37.773972;
+lon = -122.431297;
+const sanfranciscoClicked = $("#cityBtn4");
+cityBtn4.click(function () {
+  const cityValue = cityBtn4.val();
+  if (sanfranciscoClicked) {
+    sanfranciscoSearch(cityValue); {  
+    }
+  }
+  console.log("San Francisco clicked");
+});
+
+async function orlandoSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=28.538336&lon=-81.379234&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn5 = $("#cityBtn5");
+lat = 28.538336;
+lon = -81.379234;
+const orlandoClicked = $("#cityBtn5");
+cityBtn5.click(function () {
+  const cityValue = cityBtn5.val();
+  if (orlandoClicked) {
+    orlandoSearch(cityValue); {  
+    }
+  }
+  console.log("Orlando clicked");
+});
+
+async function bostonSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=42.361145&lon=-71.057083&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn6 = $("#cityBtn6");
+lat = 42.361145;
+lon = -71.057083;
+const bostonClicked = $("#cityBtn6");
+cityBtn6.click(function () {
+  const cityValue = cityBtn6.val();
+  if (bostonClicked) {
+    bostonSearch(cityValue); {  
+    }
+  }
+  console.log("Boston clicked");
+});
+
+async function austinSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=30.266666&lon=-97.73333&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn7 = $("#cityBtn7");
+lat = 30.266666;
+lon = -97.73333;
+const austinClicked = $("#cityBtn7");
+cityBtn7.click(function () {
+  const cityValue = cityBtn7.val();
+  if (austinClicked) {
+    austinSearch(cityValue); {  
+    }
+  }
+  console.log("Austin clicked");
+});
+
+async function chicagoSearch() {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=41.881832&lon=-87.623177&exclude=hourly,daily&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
+      $("#humidity").text(`Humidity: ${data.main.humidity}%`);
+      $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
+      $("#description").text(`Sky: ${data.weather[0].main}`);
+    });
+}
+const cityBtn8 = $("#cityBtn8");
+lat = 41.881832;
+lon = -87.623177;
+const chicagoClicked = $("#cityBtn8");
+cityBtn8.click(function () {
+  const cityValue = cityBtn8.val();
+  if (chicagoClicked) {
+    chicagoSearch(cityValue); {  
+    }
+  }
+  console.log("Chicago clicked");
 });
