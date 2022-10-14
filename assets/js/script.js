@@ -37,7 +37,6 @@ searchBtn.click(function () {
   console.log("gCWI: City searched for: " + cityValue);
 });
 
-// FUNCTION TO GET THE 5 DAY FORECAST. ITS BROKEN BUT ON TRACK I THINK. NOT SURE HOW TO FETCH LOCATION.
 function getForecast(cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&exclude=current,minutely,hourly,alerts&units=imperial&appid=eae798b284ccde933e01fec4c703c7d6`
@@ -100,7 +99,8 @@ const day3 = $("#day3");
 const day4 = $("#day4");
 const day5 = $("#day5");
 
-// function works but im pulling from the API wrong.
+// LEFT SIDE BUTTONS
+// need 5 day forecast results
 async function atlantaSearch() {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=33.75&lon=-84.38&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
@@ -116,13 +116,13 @@ async function atlantaSearch() {
     });
 }
 const cityBtn1 = $("#cityBtn1");
-lat = 33.753746;
-lon = -84.38633;
 const atlantaClicked = $("#cityBtn1");
 cityBtn1.click(function () {
   const cityValue = cityBtn1.val();
   if (atlantaClicked) {
-    atlantaSearch(cityValue); {
+    atlantaSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("Atlanta clicked");
@@ -149,7 +149,9 @@ const denverClicked = $("#cityBtn2");
 cityBtn2.click(function () {
   const cityValue = cityBtn2.val();
   if (denverClicked) {
-    denverSearch(cityValue); {  
+    denverSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("Denver clicked");
@@ -176,7 +178,9 @@ const seattleClicked = $("#cityBtn3");
 cityBtn3.click(function () {
   const cityValue = cityBtn3.val();
   if (seattleClicked) {
-    seattleSearch(cityValue); {  
+    seattleSearch(cityValue);
+    {
+      getForecast(atlantaSearch());
     }
   }
   console.log("Seattle clicked");
@@ -203,7 +207,9 @@ const sanfranciscoClicked = $("#cityBtn4");
 cityBtn4.click(function () {
   const cityValue = cityBtn4.val();
   if (sanfranciscoClicked) {
-    sanfranciscoSearch(cityValue); {  
+    sanfranciscoSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("San Francisco clicked");
@@ -230,7 +236,9 @@ const orlandoClicked = $("#cityBtn5");
 cityBtn5.click(function () {
   const cityValue = cityBtn5.val();
   if (orlandoClicked) {
-    orlandoSearch(cityValue); {  
+    orlandoSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("Orlando clicked");
@@ -257,7 +265,9 @@ const bostonClicked = $("#cityBtn6");
 cityBtn6.click(function () {
   const cityValue = cityBtn6.val();
   if (bostonClicked) {
-    bostonSearch(cityValue); {  
+    bostonSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("Boston clicked");
@@ -284,7 +294,9 @@ const austinClicked = $("#cityBtn7");
 cityBtn7.click(function () {
   const cityValue = cityBtn7.val();
   if (austinClicked) {
-    austinSearch(cityValue); {  
+    austinSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("Austin clicked");
@@ -311,7 +323,9 @@ const chicagoClicked = $("#cityBtn8");
 cityBtn8.click(function () {
   const cityValue = cityBtn8.val();
   if (chicagoClicked) {
-    chicagoSearch(cityValue); {  
+    chicagoSearch(cityValue);
+    {
+      getForecast();
     }
   }
   console.log("Chicago clicked");
