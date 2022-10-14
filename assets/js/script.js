@@ -330,3 +330,10 @@ cityBtn8.click(function () {
   }
   console.log("Chicago clicked");
 });
+
+//local storage for search history
+// $("#searchHistory").click(function () {
+//   var searchedCities = $("#textarea").val();
+//   localStorage.setItem("search-history", searchedCities);
+// });
+// $("#searchHistory").val(localStorage.getItem("search-history"));
