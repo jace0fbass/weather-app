@@ -11,13 +11,24 @@ var currentDay = moment();
 $("#currentDay").text(currentDay.format("dddd MMMM Do, YYYY"));
 console.log(currentDay.format("dddd MMMM Do, YYYY"));
 
-async function getCityWeatherInfo(cityName) {
+getCityWeatherInfo(localStorage.getItem("currentCity"));
+
+async function getCityWeatherInfo(city) {
+  var searchedCities = localStorage.getItem("searchedCities") || [];
+  var cityName = city.toLowerCase();
+  if (!searchedCities.includes(cityName)) {
+    searchedCities.push(cityName);
+    console.log(searchedCities); // turn string into array of strings
+    localStorage.setItem("searchedCities", searchedCities);
+  }
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
+      localStorage.setItem("currentCity", cityName);
+
       $("#cityAndDate").text(
         `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
       );
@@ -45,7 +56,7 @@ function getForecast(cityName) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      
       console.log("Forecast API fetch works");
 
       $("#day1").text(
@@ -55,7 +66,7 @@ function getForecast(cityName) {
           data.list[2].main.humidity
         }% Wind:${data.list[2].wind.speed}mph`
       );
-      console.log(data);
+     
 
       $("#day2").text(
         `${data.list[10].dt_txt.split(" ")[0]} High:${
@@ -64,7 +75,7 @@ function getForecast(cityName) {
           data.list[10].main.humidity
         }% Wind:${data.list[10].wind.speed}mph`
       );
-      console.log(data);
+      
 
       $("#day3").text(
         `${data.list[18].dt_txt.split(" ")[0]} High:${
@@ -73,7 +84,7 @@ function getForecast(cityName) {
           data.list[18].main.humidity
         }% Wind:${data.list[18].wind.speed}mph`
       );
-      console.log(data);
+      
 
       $("#day4").text(
         `${data.list[26].dt_txt.split(" ")[0]} High:${
@@ -82,7 +93,7 @@ function getForecast(cityName) {
           data.list[26].main.humidity
         }% Wind:${data.list[26].wind.speed}mph`
       );
-      console.log(data);
+      
 
       $("#day5").text(
         `${data.list[34].dt_txt.split(" ")[0]} High:${
@@ -91,7 +102,7 @@ function getForecast(cityName) {
           data.list[34].main.humidity
         }% Wind:${data.list[34].wind.speed}mph`
       );
-      console.log(data);
+     
       console.log("Day1-5 forecast displayed");
     });
 }
@@ -349,9 +360,9 @@ cityBtn8.click(function () {
   console.log("Chicago clicked");
 });
 
-//local storage for search history
+// local storage for search history
 // $("#searchHistory").click(function () {
-//   var searchedCities = $("#textarea").val();
+//   var searchedCities = $("#searchBtn").val();
 //   localStorage.setItem("search-history", searchedCities);
 // });
 // $("#searchHistory").val(localStorage.getItem("search-history"));
