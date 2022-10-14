@@ -18,14 +18,14 @@ async function getCityWeatherInfo(cityName) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
+      console.log("icon appended");
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
       $("#description").text(`Sky: ${data.weather[0].main}`);
-      $("#icon").append("img").attr(`src`, `${data.weather[0].icon}`);
-      console.log("icon append")
-      // ATTEMPTING TO GET THE 5 DAY INFO AT THE SAME TIME BUT AM DOING IT WRONG.
       getForecast(cityName);
       console.log("getForecast ran inside of getCityWeatherInfo");
     });
@@ -110,7 +110,9 @@ async function atlantaSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -137,7 +139,9 @@ async function denverSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -166,7 +170,9 @@ async function seattleSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -182,7 +188,7 @@ cityBtn3.click(function () {
   if (seattleClicked) {
     seattleSearch(cityValue);
     {
-      getForecast(atlantaSearch());
+      getForecast(seattleSearch());
     }
   }
   console.log("Seattle clicked");
@@ -195,7 +201,9 @@ async function sanfranciscoSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -224,7 +232,9 @@ async function orlandoSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -253,7 +263,9 @@ async function bostonSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -282,7 +294,9 @@ async function austinSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
@@ -311,7 +325,9 @@ async function chicagoSearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      $("#cityAndDate").text(`${data.name} ${data.main.temp}°`);
+      $("#cityAndDate").text(
+        `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
+      );
       $("#feelsLike").text(`Feels like: ${data.main.feels_like}°`);
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
