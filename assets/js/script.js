@@ -23,6 +23,8 @@ async function getCityWeatherInfo(cityName) {
       $("#humidity").text(`Humidity: ${data.main.humidity}%`);
       $("#windSpeed").text(`Wind Speed: ${data.wind.speed}mph`);
       $("#description").text(`Sky: ${data.weather[0].main}`);
+      $("#icon").append("img").attr(`src`, `${data.weather[0].icon}`);
+      console.log("icon append")
       // ATTEMPTING TO GET THE 5 DAY INFO AT THE SAME TIME BUT AM DOING IT WRONG.
       getForecast(cityName);
       console.log("getForecast ran inside of getCityWeatherInfo");
