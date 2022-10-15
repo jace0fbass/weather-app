@@ -17,9 +17,9 @@ async function getCityWeatherInfo(city) {
   var searchedCities = localStorage.getItem("searchedCities") || [];
   var cityName = city.toLowerCase();
   if (!searchedCities.includes(cityName)) {
-    searchedCities.push(cityName);
-    console.log(searchedCities); // turn string into array of strings
-    localStorage.setItem("searchedCities", searchedCities);
+    //searchedCities.push(cityName); SAYS ISNT A FUNCTION
+    localStorage.setItem("searchedCities", cityName);
+    console.log("WORKING SO FAR"); // turn string into array of strings
   }
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=fe6203bc0aed338120f1ad06f08effe6`
@@ -28,7 +28,7 @@ async function getCityWeatherInfo(city) {
     .then((data) => {
       // console.log(data);
       localStorage.setItem("currentCity", cityName);
-
+      $("#prevSearch").append(localStorage.getItem("searchedCities"));
       $("#cityAndDate").text(
         `${data.name} ${data.main.temp}° ${data.weather[0].icon}`
       );
